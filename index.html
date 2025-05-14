@@ -24,9 +24,9 @@
 <body>
     <h1>Kvadrātvienādojuma risinātājs</h1>
     <p>
-        <input type="number" id="a">
-        <input type="number" id="b">
-        <input type="number" id="c">
+        <input type="number" id="ac">
+        <input type="number" id="bc">
+        <input type="number" id="cc">
     </p>
     <p><button type="button" onclick="poga()">Aprēķināt</button></p>
     <p>Saknes: <span id="rezultats"></span></p>
@@ -44,9 +44,9 @@
             }
         }
         function poga() {
-            var a = Number(a.value);
-            var b = Number(b.value);
-            var c = Number(c.value);
+            var a = Number(ac.value);
+            var b = Number(bc.value);
+            var c = Number(cc.value);
             
             if (isNaN(a)|| isNaN(b) || isNaN(c) || a===0) {
                 rezultats.innerHTML = "Lūdzu ievadi korektus koeficientus (a nevarbūt 0)";
