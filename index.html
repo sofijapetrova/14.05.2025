@@ -29,13 +29,37 @@
         <input type="number" id="c">
     </p>
     <p><button type="button" onclick="poga()">Aprēķināt</button></p>
+    <p id="rezultats"></p>
     <script>
         function disk(a, b, c) {
             return b * b - 4 * a * c;
         }
-        function poga() {
-
+        function saknes(a, b, D) {
+            if (D < 0) {
+                return false;
+            } else {
+                var x1 = (-b + Math.sqrt(D)) / (2 * a);
+                var x2 = (-b - Math.sqrt(D)) / (2 * a);
+                return [x1, x2];
+            }
         }
+        function poga() {
+            var a = Number(a.value);
+            var b = Number(b.value);
+            var c = Number(c.value);
+            
+            if (isNaN(a)|| isNaN(b) || isNaN(c) || a===0) {
+                rezultats.innerHTML = "Lūdzu ievadi korektus koeficientus (a nevarbūt 0)";
+                return;
+            }
+            var rez = saknes (a,b, disk (a,b,c));
+            if(rez===false){
+                rezultats.innerHTML = "Kvadrātvienādojumam nav reālu sakņu.";
+            } else {
+                rezultats.innerHTML = `Saknes: x1 = ${rez[0].toFixed(3)}, x2 =${rez[1].toFixed(3)}`;
+            }
+        }
+
     </script>
 </body>
 
